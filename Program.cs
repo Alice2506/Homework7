@@ -6,28 +6,32 @@
 
 int m = int.Parse(Console.ReadLine());
 int n = int.Parse(Console.ReadLine());
-int[,] numbers = new int[m,n];
+double[,] numbers = new double[m,n];
 
-void PrintArray(int[,] col)
+void PrintArray(double[,] matr)
 {
-    int count = col.Length;
-    int position = 0;
-    while (position < count)
+    for (int i = 0; i < matr.GetLength(0); i++)
     {
-        Console.Write(col[position] + " ");
-        position++;
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($"{matr[i, j]} ");
+        }
+    Console.WriteLine();
     }
-}        
+}
+
+void FillArray(double[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i,j] = new Random().Next(1,10);
+        }
+    }
+}
+
 PrintArray(numbers);
-Console.WriteLine();
-
-void FillArray(int[,] collection)
-{
-    for (int i = 0; i < collection.Length; i++)
-    {
-        collection[i] = int.Parse(Console.ReadLine());
-    }
-}  
 FillArray(numbers);
-PrintArray(numbers);
 Console.WriteLine();
+PrintArray(numbers);
