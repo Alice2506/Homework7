@@ -14,10 +14,15 @@ void PrintArray(double[,] matr)
     {
         for (int j = 0; j < matr.GetLength(1); j++)
         {
-            Console.Write($"{matr[i, j]} ");
+            Console.Write($"{matr[i, j]} \t");
         }
     Console.WriteLine();
     }
+}
+
+double GetRandomNumber(double min, double max)
+{
+    return Math.Round(new Random().NextDouble() * (max - min) + min, 1);
 }
 
 void FillArray(double[,] matr)
@@ -26,7 +31,7 @@ void FillArray(double[,] matr)
     {
         for (int j = 0; j < matr.GetLength(1); j++)
         {
-            matr[i,j] = new Random().Next(1,10);
+            matr[i,j] = GetRandomNumber(-10,10);
         }
     }
 }
